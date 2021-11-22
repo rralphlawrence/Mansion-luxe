@@ -1,1 +1,111 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+/* No CSS *//*# sourceMappingURL=styles.css.map */@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  
+  }
+     
+  .flex{
+      display: flex;
+      gap:1rem ;
+  }
+  body{
+      font-family: 'rale-way' , sans-serif;
+      overflow-x:hidden ;
+  }
+  .logo{
+      margin: 2rem;
+      width: 30px;
+      height: 30px;
+  }
+  
+  /*  PRIMARY HEADER*/
+   
+  .primary-header{
+      align-items: center;
+      justify-content: space-between;
+  
+  }
+  .mobile-nav-toggle{
+      display: none;
+  }
+  .primary-navigation{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      backdrop-filter: blur(1rem);
+      background-color:hsl(0 0% 100% /0.1);
+  }
+  @supports( backdrop-filter: blur(1rem)){
+      .primary-navigation{
+        backdrop-filter: blur(1rem);
+        background-color:hsl(0 0% 100% /0.1);
+      }
+  }
+  
+  .primary-navigation a{
+      color: aliceblue;
+      text-decoration: none;
+  }
+  .primary-navigation a > [aria-hidden="true"]{
+      font-weight: 700;
+      margin-inline-end: 0.75em;
+  }
+  @media screen and (max-width:35em){
+      .primary-navigation{
+          position: fixed;
+          inset: 0 0 0 30%;
+             gap: 2em;
+          flex-direction: column;
+          padding: min(30vh, 10rem ) 2em;
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 350ms ease-in-out;
+
+      }
+      .mobile-nav-toggle{
+          background-color: transparent;
+          cursor: pointer;
+          display: block;
+        position: absolute;
+        background:url(../img/menu.svg);
+        width: 2rem;
+        aspect-ratio: 1;
+        top: 2rem;
+        right: 2rem;
+        z-index: 9999;
+        background-repeat: no-repeat;
+        border: 0;
+    }
+    .mobile-nav-toggle[aria-expanded="true"]{
+        outline: 0;
+        background-image: url(../img/exit.svg);
+    }
+    .primary-navigation[data-visible="true"]{
+        transform: translateX(0%);
+    }
+  
+  }
+  @media screen and (min-width:35em) and (max-width:55em) {
+      .primary-navigation a> span[aria-hidden = "true"]{
+         display: none;
+      }
+  }
+  @media screen  and (min-width:35em) {
+      .primary-navigation{
+          padding-block: 2rem;
+          gap: 3rem;
+          padding-inline: clamp(3rem,10vw, 10rem);
+      }
+  }
+ 
+  .cover-background{
+      background-image: url(../img/ice.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+      max-width: 100%;
+      width: 100vw;
+  }
+  
